@@ -23,14 +23,14 @@ trait Favoriter
             $favorite = app(config('favorite.favorite_model'));
             $favorite->{config('favorite.user_foreign_key')} = $this->getKey();
 
-            $object->favorites()->save($favorite);
+            $object->favoritesOfFavoriteable()->save($favorite);
         }
     }
 
     public function unfavorite(Model $object): void
     {
         /* @var \Overtrue\LaravelFavorite\Traits\Favoriteable $object */
-        $relation = $object->favorites()
+        $relation = $object->favoritesOfFavoriteable()
             ->where('favoriteable_id', $object->getKey())
             ->where('favoriteable_type', $object->getMorphClass())
             ->where(config('favorite.user_foreign_key'), $this->getKey())
