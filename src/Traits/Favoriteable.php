@@ -30,14 +30,14 @@ trait Favoriteable
                 return $this->favoriters->contains($user);
             }
 
-            return ($this->relationLoaded('favorites') ? $this->favorites : $this->favorites())
+            return ($this->relationLoaded('favorites') ? $this->favorites : $this->favoritesOfFavoriteable())
                     ->where(\config('favorite.user_foreign_key'), $user->getKey())->count() > 0;
         }
 
         return false;
     }
 
-    public function favorites(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    public function favoritesOfFavoriteable(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
         return $this->morphMany(config('favorite.favorite_model'), 'favoriteable');
     }
