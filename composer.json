@@ -1,10 +1,10 @@
 {
-    "name": "overtrue/laravel-favorite-yacine",
+    "name": "yacinsantos/laravel-favorite-yacine",
     "description": "User favorite features for Laravel Application.",
     "license": "MIT",
     "authors": [
         {
-            "name": "overtrue/yacine",
+            "name": "yacinsantos",
             "email": "yacinkh60@gmail.com"
         }
     ],
